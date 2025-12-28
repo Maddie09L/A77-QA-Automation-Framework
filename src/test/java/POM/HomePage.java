@@ -10,17 +10,11 @@ public class HomePage extends BasePage {
         super(givenDriver);
     }
     By firstPlaylist = By.xpath("//li[@class='playlist playlist']");
-
     By playlistNameField = By.xpath("//input[@data-testid='inline-playlist-name-input']");
-
     By renamePlaylistSuccessMsg = By.xpath("//div[@class='alertify-logs top right']//div[contains(@class, 'success')]");
 
 
-    public void doubleClickPlaylist() {
-        doubleClick(firstPlaylist);
-
-    }
-
+    public void doubleClickPlaylist() { doubleClick(firstPlaylist);}
     public void enterNewPlaylistName(String newName) {
         findElement(playlistNameField).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.BACK_SPACE));
         findElement(playlistNameField).sendKeys(newName);

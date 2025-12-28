@@ -1,4 +1,4 @@
-package POM;
+package pagefactory;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,28 +11,31 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class BasePage {
-    WebDriver driver;
-    WebDriverWait wait;
-    protected Actions actions;
+   protected WebDriver driver;
+   protected WebDriverWait wait;
+   protected Actions actions;
 
     By allSongsList = By.xpath("//a[@class='songs active']");
     By soundBarVisualizer = By.xpath("//div[@data-testid='sound-bar-play']");
 
 
     public BasePage (WebDriver givenDriver) {
-        driver = givenDriver;
+        this.driver = givenDriver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         actions = new Actions(driver);
+        PageFactory.initElements(this.driver,this);
 
     }
     public WebElement findElement (By locator){
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 
     }
+
     public void click (By locator){findElement(locator).click(); }
     public void doubleClick (By locator) { actions.doubleClick(findElement(locator)).perform();}
     public void chooseAllSongsList() { click(allSongsList); }
     public boolean isSongPlaying() { return findElement(soundBarVisualizer).isDisplayed();}
-    public void hoverPlay(By locator){ actions.moveToElement(findElement(locator)).perform();}
-}
 
+
+
+}
