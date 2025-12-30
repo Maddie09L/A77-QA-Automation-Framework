@@ -20,11 +20,11 @@ public class LoginTests extends BaseTest {
                  .clickSubmit();
 
 //      Added ChromeOptions argument below to fix websocket error
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
+        //ChromeOptions options = new ChromeOptions();
+        //options.addArguments("--remote-allow-origins=*");
 
-        driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        //driver = new ChromeDriver(options);
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         // TODO (for students): Review the configuration as part of HW15
 
