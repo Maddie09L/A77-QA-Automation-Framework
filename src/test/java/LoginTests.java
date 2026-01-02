@@ -9,11 +9,10 @@ import java.time.Duration;
 
 public class LoginTests extends BaseTest {
     @Test
-    public void loginEmptyEmailPassword() {
+    public void loginValidEmailValidPassword() {
 
-
-        LoginPage loginPage = new LoginPage(driver);
-        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
 
         loginPage.provideEmail("madeleiny.mason@testpro.io")
                  .providePassword("FU2nVt8d")
@@ -29,9 +28,21 @@ public class LoginTests extends BaseTest {
         // TODO (for students): Review the configuration as part of HW15
 
         String url = "https://qa.koel.app/";
-        driver.get(url);
-        Assert.assertEquals(driver.getCurrentUrl(), url);
-        driver.quit();
+        getDriver().get(url);
+        Assert.assertEquals(getDriver().getCurrentUrl(), url);
+        getDriver().quit();
+    }
+    @Test
+    public void loginInvalidEmailInvalidPassword() {
+
+        LoginPage loginPage = new LoginPage(getDriver());
+
+
+        loginPage.provideEmail("demo@testpro.io")
+                .providePassword("FUn5t8d")
+                .clickSubmit();
+
+        Assert.assertEquals(getDriver().getCurrentUrl(), url);
     }
 
 }
