@@ -9,8 +9,7 @@ import java.time.Duration;
 
 public class LoginTests extends BaseTest {
     @Test
-    public void loginValidEmailValidPasswor
-    () {
+    public void loginValidEmailValidPassword() {
 
         LoginPage loginPage = new LoginPage(getDriver());
         HomePage homePage = new HomePage(getDriver());
