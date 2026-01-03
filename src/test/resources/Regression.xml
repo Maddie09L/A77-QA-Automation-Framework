@@ -2,12 +2,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Regression">
-    <test name="RegressionTest" preserve-order="false">
+    <parameter name="BaseUrl" value="https://qa.koel.app/"/>
+    <test name="Example Test" preserve-order="false">
         <classes>
             <class name="LoginTests"/>
-            <class name="Homework20"/>
-            <class name="Homework21"/>
-            <class name="Homework22"/>
+            <class name="BaseTest"/>
+
         </classes>
     </test>
 </suite>

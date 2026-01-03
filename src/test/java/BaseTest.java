@@ -53,6 +53,7 @@ public class BaseTest {
          //WebDriverManager.chromedriver().clearDriverCache().clearResolutionCache().setup();
         //System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\edgedriver_win64\\msedgedriver.exe");
         //WebDriverManager.firefoxdriver().setup();
+
     }
     @BeforeMethod
     @Parameters({"BaseUrl"})
@@ -95,9 +96,6 @@ public class BaseTest {
         navigateToPage();
 
     }
-
-
-
 
     public void provideEmail(String email) {
         WebElement emailField = driver.findElement(By.xpath("//input[@type= 'email']"));
