@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -158,7 +159,23 @@ public class BaseTest {
         switch (browser){
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
-                return driver = new FirefoxDriver();
+
+
+                FirefoxOptions ff = new FirefoxOptions();
+
+                // If Jenkins/CI: headless is often required (no desktop)
+                // Comment out if you need to SEE the browser locally.
+                ff.addArguments("--headless=new");
+
+                // Fix common Windows/CI startup crashes (GPU / marionette decode issues)
+                ff.addPreference("layers.acceleration.disabled", true);
+                ff.addPreference("gfx.webrender.all", false);
+                ff.addPreference("media.hardware-video-decoding.enabled", false);
+
+                // Optional: reduce random popups/telemetry noise
+                ff.addPreference("app.update.auto", false);
+
+                return driver = new FirefoxDriver(ff);
             case "MicrosoftEdge":
                 System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\edgedriver_win64\\msedgedriver.exe");
                 EdgeOptions options = new EdgeOptions();
