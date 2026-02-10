@@ -7,7 +7,10 @@
         <classes>
             <class name="LoginTests"/>
             <class name="BaseTest"/>
-         <!--   <class name="Homework21"/>  -->
+            <class name="LoginKoel"/>
+            <class name="LogoutKoel"/>
+            <class name="InfoPanel"/>
+
         </classes>
     </test>
 </suite>

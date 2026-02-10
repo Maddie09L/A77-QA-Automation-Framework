@@ -12,7 +12,7 @@ public class LoginPage extends BasePage {
     public void provideEmail(String email) {
         findElement(emailField).sendKeys(email);
     }
-    public void providePassword (String password) {
+    public void providePassword(String password) {
         findElement(passwordField).sendKeys(password);
     }
     public void clickSubmit() {
@@ -20,7 +20,7 @@ public class LoginPage extends BasePage {
     }
     public void login (){
         provideEmail("madeleiny.mason@testpro.io");
-        providePassword("FU2nVt8d");
+        providePassword("Leomydog20!");
         clickSubmit();
     }
 }

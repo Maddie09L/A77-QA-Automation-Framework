@@ -34,5 +34,7 @@ public class BasePage {
     public void chooseAllSongsList() { click(allSongsList); }
     public boolean isSongPlaying() { return findElement(soundBarVisualizer).isDisplayed();}
     public void hoverPlay(By locator){ actions.moveToElement(findElement(locator)).perform();}
-}
+
+    }
+
 
